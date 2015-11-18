@@ -15,11 +15,11 @@ define( [ "jquery", "knockout", "restAPI", "util", "model/login", "model/registe
     self.submitLogin    = function() {
       if(self.login.validate()) {
         var xhr = restAPI.login(self.login);
-        xhr.done( function(data, status){
+        xhr.done( function(result, status){
           console.info('success');
           window.location.href = "/app/itrust.html"; /* mock code */
         } );
-        xhr.fail( function(data, status){
+        xhr.fail( function(result, status){
           console.info('failure');
         } );
       }      
@@ -27,11 +27,11 @@ define( [ "jquery", "knockout", "restAPI", "util", "model/login", "model/registe
     self.submitRegistration  = function() {
       if(self.register.validate()) {
         var xhr = restAPI.register(self.login);
-        xhr.done( function(data, status){
+        xhr.done( function(result, status){
           console.info('success');
           window.location.href = "/app/itrust.html"; /* mock code */
         } );
-        xhr.fail( function(data, status){
+        xhr.fail( function(result, status){
           console.info('failure');
         } );
       } 
@@ -42,11 +42,11 @@ define( [ "jquery", "knockout", "restAPI", "util", "model/login", "model/registe
         return error.showAllMessages();
       }
       var xhr = restAPI.resetPassword(self.login);
-        xhr.done( function(data, status){
+        xhr.done( function(result, status){
           console.info('success');
           util.setNotification('please check your email for password!')          
         } );
-        xhr.fail( function(data, status){
+        xhr.fail( function(result, status){
           console.info('failure');
         } );
       self.resetEmailMsg  = ko.observable(false);

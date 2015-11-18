@@ -1,4 +1,4 @@
-define( [ "knockout", "knockoutAMDHelpers", "knockoutValidation" ], function( ko ) {
+define( [ "knockout", "knockoutAMDHelpers", "knockoutValidation", "knockoutPostBox" ], function( ko ) {
   "use strict";
   console.info("\texecuting js/setup module callback");
   

@@ -1,5 +1,32 @@
 <div class="panel panel-default">  
   <div class="panel-body">
-    Status
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>
+            S.No
+          </th>
+          <th>
+            Request Id
+          </th>
+          <th>
+            Status
+          </th>
+          <th>
+            Remarks
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- ko foreach: requestList -->
+          <tr>
+            <td data-bind="text: ($index()+1)"></td>
+            <td data-bind="text: $data.requestId"></td>
+            <td data-bind="text: $data.status"></td>
+            <td data-bind="text: $data.remarks"></td>
+          </tr>
+        <!-- /ko -->
+      </tbody>
+    </table>
   </div>
 </div>

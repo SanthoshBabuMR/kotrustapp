@@ -57,6 +57,15 @@ define( [ "jquery", "knockout", "util", "mockAPI" ], function( $, ko, util ) {
       type       : 'POST'
     });
   };
+
+  api.getRequestList = function(data){
+    return $.ajax({
+      url        : '/rest/getRequestList',
+      data       : JSON.stringify(data, util.prepareJSON),
+      dataType   : 'json',
+      type       : 'GET'
+    });
+  };
   
   return api;
 } );

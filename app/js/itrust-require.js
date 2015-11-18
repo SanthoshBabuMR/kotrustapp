@@ -3,13 +3,13 @@ define( [ "jquery", "knockout", "restAPI", "viewModel/itrustVM" ], function( $, 
   console.info("\texecuting js/itrust-require module callback");
   
   var xhr = restAPI.requestData();
-	xhr.done( function(data, status){
+	xhr.done( function(result, status){
 	  console.info('success');
-	  itrustVM.init(data);
+	  itrustVM.init(result.data);
 	  ko.applyBindings(itrustVM, $('.doc-wrap').get(0));	
   	$('.doc-mask').removeClass('show');
 	} );
-	xhr.fail( function(data, status){
+	xhr.fail( function(result, status){
 	  console.info('failure');
 	} );
 
