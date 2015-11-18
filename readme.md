@@ -1,6 +1,6 @@
 # iTrust
 
-Web based application for simplifying KYC process
+Web based application
 
 ### Version
 1.0.0
