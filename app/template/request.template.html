@@ -1,7 +1,36 @@
 <div class="panel panel-default">  
   <div class="panel-body">
     <form role="form">
-            
+      <div class="row">
+        <div class="column col-xs-3 col-xs-offset-2">
+          <label for="appId">From App Id</label>
+        </div>
+        <div class="column col-xs-7">
+          <input type="text" class="form-control" id="appId" data-bind="value:request.appId" readonly value="654321">
+        </div>
+      </div>
+      <div class="row">
+        <div class="column col-xs-3 col-xs-offset-2">
+          <label for="approverId">Approver Id</label>
+        </div>
+        <div class="column col-xs-7">
+          <input type="text" class="form-control" id="approverId" data-bind="value:request.approverId">
+        </div>
+      </div>
+      <div class="row">
+        <div class="column col-xs-3 col-xs-offset-2">
+          <label for="remarks">Remarks</label>
+        </div>
+        <div class="column col-xs-7">
+        	<textarea class="form-control" id="remarks" data-bind="value:request.remarks"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column col-xs-12">
+          <hr>
+          <button type="submit" class="btn btn-primary form-control" data-bind="click: sendRequest">Send Request</button>
+        </div>
+      </div>
     </form>
   </div>
 </div>

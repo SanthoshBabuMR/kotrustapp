@@ -5,8 +5,8 @@ define( [ "jquery", "knockout", "restAPI", "util", "model/login", "model/registe
   var instance = null;
   var loginVM = function() {
     var self            = this;
-    self.login          = login;
-    self.register       = register;
+    self.login          = new login();
+    self.register       = new register();
     self.resetEmail     = ko.observable().extend({required:true});
     self.view           = ko.observable('login');
     self.updateView     = function(v) {

@@ -37,7 +37,7 @@ input.input-error {
 	display: block;
 	clear: both;
 }
-.profile-panel .row {
+.panel .row {
 	padding-bottom: 5px;
 }
 .notification {

@@ -19,5 +19,5 @@ define( [ "knockout" ], function( ko ) {
     }
     return true;
   };
-  return new model();
+  return model;
 } );

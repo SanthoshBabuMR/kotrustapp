@@ -36,6 +36,12 @@
           <li role="presentation" data-bind="css: { 'active': (view() === 'request')}">
             <a href="#"  data-bind="click: function(data, event){updateView('request', event)}">Initiate Reqeust</a>
           </li>
+          <li role="presentation" data-bind="css: { 'active': (view() === 'status')}">
+            <a href="#"  data-bind="click: function(data, event){updateView('status', event)}">Status</a>
+          </li>
+          <li role="presentation" data-bind="css: { 'active': (view() === 'approve')}">
+            <a href="#"  data-bind="click: function(data, event){updateView('approve', event)}">Approve</a>
+          </li>
         </ul>
 
         <section class="profile-view" data-bind="visible: (view() === 'profile')">
@@ -45,6 +51,16 @@
 
         <section class="request-view" data-bind="visible: (view() === 'request')">
           <div data-bind="template: { name: 'request' }">
+          </div>
+        </section>
+
+        <section class="status-view" data-bind="visible: (view() === 'status')">
+          <div data-bind="template: { name: 'status' }">
+          </div>
+        </section>
+
+        <section class="approve-view" data-bind="visible: (view() === 'approve')">
+          <div data-bind="template: { name: 'approve' }">
           </div>
         </section>
         

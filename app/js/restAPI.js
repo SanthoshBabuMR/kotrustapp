@@ -3,7 +3,16 @@ define( [ "jquery", "knockout", "util", "mockAPI" ], function( $, ko, util ) {
   console.info("\texecuting js/restAPI module callback");
 
   var api =  {};
- 
+  
+
+  api.requestData   = function(data){
+    return $.ajax({
+      url        : '/rest/requestData',
+      dataType   : 'json',
+      type       : 'GET'
+    });
+  };
+
   api.login   = function(data){
   	return $.ajax({
   		url        : '/rest/login',
@@ -34,6 +43,15 @@ define( [ "jquery", "knockout", "util", "mockAPI" ], function( $, ko, util ) {
   api.updateProfile   = function(data){
     return $.ajax({
       url        : '/rest/updateProfile',
+      data       : JSON.stringify(data, util.prepareJSON),
+      dataType   : 'json',
+      type       : 'POST'
+    });
+  };
+
+  api.sendRequest   = function(data){
+    return $.ajax({
+      url        : '/rest/sendRequest',
       data       : JSON.stringify(data, util.prepareJSON),
       dataType   : 'json',
       type       : 'POST'

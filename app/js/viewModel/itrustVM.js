@@ -1,4 +1,4 @@
-define( [ "jquery", "knockout", "restAPI", "util", "model/profile" ], function( $, ko, restAPI, util, profile ) {
+define( [ "jquery", "knockout", "restAPI", "util", "model/profile", "model/request" ], function( $, ko, restAPI, util, profile, request ) {
   "use strict";
   console.info("\texecuting js/viewModel/itrustVM module callback");
   
@@ -7,7 +7,9 @@ define( [ "jquery", "knockout", "restAPI", "util", "model/profile" ], function( 
     var self               = this;
     self.notification      = ko.observable();  
     self.view              = ko.observable('profile');
-    self.profile           = profile;
+    self.appId             = ko.observable();
+    self.profile           = new profile();
+    self.request           = new request();
     self.updateView     = function(v) {
       self.view(v);
     };
@@ -22,6 +24,22 @@ define( [ "jquery", "knockout", "restAPI", "util", "model/profile" ], function( 
           console.info('failure');
         } );
       }   
+    };
+    self.sendRequest  = function() {
+      if(self.request.validate()) {
+        var xhr = restAPI.sendRequest(self.profile);
+        xhr.done( function(data, status){
+          console.info('success');
+          util.setNotification('request sent successfully.');
+        } );
+        xhr.fail( function(data, status){
+          console.info('failure');
+        } );
+      }   
+    };
+    self.init = function(d) {
+      var data = d || {};
+      self.appId( data.appId );
     }
   }
   itrustVM.getInstance = function() {
