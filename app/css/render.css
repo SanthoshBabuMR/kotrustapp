@@ -1,0 +1,30 @@
+.login-view,
+.register-view,
+.reset-password-view {
+	max-width: 320px;
+	margin: 0 auto;
+}
+body {
+
+}
+.doc-mask {
+	opacity: 0;	
+	-webkit-transition: all .6s; /* Safari */
+    transition: all .6s;
+}
+.doc-mask.show {
+	opacity: 1;	
+	z-index: 99999;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background-color: #efefef;
+}
+span.input-error {
+	color: #ff0000;
+}
+input.input-error {
+	border: 1px solid #ff0000;
+}

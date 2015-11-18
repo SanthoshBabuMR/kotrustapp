@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Login</div>
+  <div class="panel-body">
+    <form role="form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" data-bind="value:login.email">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd" data-bind="value:login.password">
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary form-control" data-bind="click: submitLogin">Login</button>
+      </div>      
+    </form>
+  </div>
+</div>
