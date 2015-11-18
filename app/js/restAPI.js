@@ -30,6 +30,15 @@ define( [ "jquery", "knockout", "util", "mockAPI" ], function( $, ko, util ) {
   		type       : 'POST'
   	});
   };
+
+  api.updateProfile   = function(data){
+    return $.ajax({
+      url        : '/rest/updateProfile',
+      data       : JSON.stringify(data, util.prepareJSON),
+      dataType   : 'json',
+      type       : 'POST'
+    });
+  };
   
   return api;
 } );

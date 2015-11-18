@@ -36,4 +36,15 @@ define( [ "jquery", "jquery.mockjax" ], function( $ ) {
     }
   });
 
+  $.mockjax({
+    url              : '/rest/updateProfile',
+    contentType      : "application/json",
+    status           : 200,
+    responseText     : function() {
+      this.responseText = {
+        status    : 'success'
+      }
+    }
+  });
+
 } );

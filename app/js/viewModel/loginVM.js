@@ -1,4 +1,4 @@
-define( [ "jquery", "knockout", "restAPI", "model/login", "model/register" ], function( $, ko, restAPI, login, register ) {
+define( [ "jquery", "knockout", "restAPI", "util", "model/login", "model/register" ], function( $, ko, restAPI, util, login, register ) {
   "use strict";
   console.info("\texecuting js/viewModel/loginVM module callback");
   
@@ -8,22 +8,16 @@ define( [ "jquery", "knockout", "restAPI", "model/login", "model/register" ], fu
     self.login          = login;
     self.register       = register;
     self.resetEmail     = ko.observable().extend({required:true});
-    self.notification   = ko.observable();
     self.view           = ko.observable('login');
     self.updateView     = function(v) {
       self.view(v);
-    };
-    self.setNotification = function(v){
-      self.notification(v);
-      setTimeout( function(){
-        self.notification(undefined);
-      }, 5000);
     };
     self.submitLogin    = function() {
       if(self.login.validate()) {
         var xhr = restAPI.login(self.login);
         xhr.done( function(data, status){
           console.info('success');
+          window.location.href = "/app/itrust.html"; /* mock code */
         } );
         xhr.fail( function(data, status){
           console.info('failure');
@@ -35,6 +29,7 @@ define( [ "jquery", "knockout", "restAPI", "model/login", "model/register" ], fu
         var xhr = restAPI.register(self.login);
         xhr.done( function(data, status){
           console.info('success');
+          window.location.href = "/app/itrust.html"; /* mock code */
         } );
         xhr.fail( function(data, status){
           console.info('failure');
@@ -49,7 +44,7 @@ define( [ "jquery", "knockout", "restAPI", "model/login", "model/register" ], fu
       var xhr = restAPI.resetPassword(self.login);
         xhr.done( function(data, status){
           console.info('success');
-          self.setNotification('please check your email for password!')          
+          util.setNotification('please check your email for password!')          
         } );
         xhr.fail( function(data, status){
           console.info('failure');

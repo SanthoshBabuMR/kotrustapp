@@ -1,0 +1,126 @@
+<div class="panel panel-default profile-panel">  
+  <div class="panel-body">
+    <form role="form">
+      <div class="row">
+        <div class="column col-xs-3 col-xs-offset-2">
+          <label for="username">Name</label>
+        </div>
+        <div class="column col-xs-7">
+          <input type="text" class="form-control" id="username" data-bind="value:profile.name">
+        </div>
+      </div> 
+      <div class="row">
+        <div class="column col-xs-3 col-xs-offset-2">
+          <label for="dob">DOB</label>
+        </div>
+        <div class="column col-xs-7">
+          <input type="text" class="form-control" id="dob" data-bind="value:profile.dob">
+        </div>
+      </div>  
+      <hr>
+      <div class="row">
+        <div class="column col-xs-3 col-xs-offset-2">
+          <label for="email">Email</label>
+        </div>
+        <div class="column col-xs-7">
+          <input type="email" class="form-control" id="email" data-bind="value:profile.email">
+        </div>
+      </div>  
+      <div class="row">
+        <div class="column col-xs-3 col-xs-offset-2">
+          <label for="phone">Phone</label>
+        </div>
+        <div class="column col-xs-7">
+          <input type="text" class="form-control" id="phone" data-bind="value:profile.phone">
+        </div>
+      </div>  
+      <div class="row">
+        <div class="column col-xs-3 col-xs-offset-2">
+          <label for="aadhaar">Aadhaar</label>
+        </div>
+        <div class="column col-xs-7">
+          <input type="text" class="form-control" id="aadhaar" data-bind="value:profile.aadhaar">
+        </div>
+      </div>
+      <div class="row">
+        <div class="column col-xs-3 col-xs-offset-2">
+          <label for="pan">PAN</label>
+        </div>
+        <div class="column col-xs-7">
+          <input type="text" class="form-control" id="pan" data-bind="value:profile.pan">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="column col-xs-3 col-xs-offset-2">
+          <label for="building">Building</label>
+        </div>
+        <div class="column col-xs-7">
+          <input type="text" class="form-control" id="building" data-bind="value:profile.building">
+        </div>
+      </div>
+      <div class="row">
+        <div class="column col-xs-3 col-xs-offset-2">
+          <label for="street">Street</label>
+        </div>
+        <div class="column col-xs-7">
+          <input type="text" class="form-control" id="street" data-bind="value:profile.street">
+        </div>
+      </div>
+      <div class="row">
+        <div class="column col-xs-3 col-xs-offset-2">
+          <label for="locality">Locality</label>
+        </div>
+        <div class="column col-xs-7">
+          <input type="text" class="form-control" id="locality" data-bind="value:profile.locality">
+        </div>
+      </div>
+      <div class="row">
+        <div class="column col-xs-3 col-xs-offset-2">
+          <label for="poname">PO Name</label>
+        </div>
+        <div class="column col-xs-7">
+          <input type="text" class="form-control" id="poname" data-bind="value:profile.poname">
+        </div>
+      </div>
+      <div class="row">
+        <div class="column col-xs-3 col-xs-offset-2">
+          <label for="vtc">VTC</label>
+        </div>
+        <div class="column col-xs-7">
+          <input type="text" class="form-control" id="vtc" data-bind="value:profile.vtc">
+        </div>
+      </div>
+      <div class="row">
+        <div class="column col-xs-3 col-xs-offset-2">
+          <label for="district">District</label>
+        </div>
+        <div class="column col-xs-7">
+          <input type="text" class="form-control" id="district" data-bind="value:profile.district">
+        </div>
+      </div>
+      <div class="row">
+        <div class="column col-xs-3 col-xs-offset-2">
+          <label for="state">State</label>
+        </div>
+        <div class="column col-xs-7">
+          <input type="text" class="form-control" id="state" data-bind="value:profile.state">
+        </div>
+      </div>
+      <div class="row">
+        <div class="column col-xs-3 col-xs-offset-2">
+          <label for="pincode">Pincode</label>
+        </div>
+        <div class="column col-xs-7">
+          <input type="text" class="form-control" id="pincode" data-bind="value:profile.pincode">
+        </div>
+      </div>
+      <div class="row">
+        <div class="column col-xs-12">
+          <hr>
+          <button type="submit" class="btn btn-primary form-control" data-bind="click: updateProfile">Update Profile</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

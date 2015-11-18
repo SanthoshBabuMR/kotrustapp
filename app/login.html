@@ -25,8 +25,8 @@
       </nav>
       <div class="container">
       <!-- container begin -->
-        <section class="msg-view">
-          <p data-bind="visible:notification, text:notification"></p>
+        <section class="notification">
+          <p class="message"></p>
         </section>
         <section class="login-view" data-bind="visible: (view() === 'login')">
           <div data-bind="template: { name: 'login' }">

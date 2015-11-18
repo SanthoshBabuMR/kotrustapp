@@ -28,3 +28,24 @@ span.input-error {
 input.input-error {
 	border: 1px solid #ff0000;
 }
+.tab-header li {
+	float: left;
+	padding: 5px;
+}
+.tab-header:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.profile-panel .row {
+	padding-bottom: 5px;
+}
+.notification {
+	display: none;
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: #eeeeee;
+}
+.notification p {
+	margin-bottom: 0;
+}

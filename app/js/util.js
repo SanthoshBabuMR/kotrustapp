@@ -10,5 +10,15 @@ define( [ "jquery", "knockout" ], function( $, ko ) {
     }
   }
   
+  util.setNotification = function(v){
+  	$(".notification").hide();
+	  $(".notification .message").text(v);
+	  $(".notification").slideToggle();
+	  setTimeout( function(){
+	  	$(".notification").slideToggle();
+	    $(".notification-message").text('');
+	  }, 2000);
+	};
+
   return util;
 } );

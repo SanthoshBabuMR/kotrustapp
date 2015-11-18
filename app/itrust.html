@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login - iTrust</title>
+    <title>iTrust</title>
     <!-- css begin -->
     <link rel="stylesheet" href="/app/css/vendor/reset.css" />
     <link rel="stylesheet" href="/app/css/vendor/bootstrap.min.css" />
@@ -17,7 +17,7 @@
       <nav class="navbar navbar-default">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="/app/login.html">
+            <a class="navbar-brand" href="/app/itrust.html">
               iTrust
             </a>
           </div>
@@ -25,39 +25,29 @@
       </nav>
       <div class="container">
       <!-- container begin -->
-        <section class="msg-view">
-          <p data-bind="visible:notification, text:notification"></p>
+        <section class="notification">
+          <p class="message"></p>
         </section>
-        <section class="login-view" data-bind="visible: (view() === 'login')">
-          <div data-bind="template: { name: 'login' }">
-          </div>
-          <div class="form-group">
-            <div class="pull-left">
-              <a href="#resetPassword" data-bind="click: function(data, event){updateView('resetPassword', event)}">Forgot Password</a>
-            </div>
-            <div class="pull-right">
-              <a href="#register" data-bind="click: function(data, event){updateView('register', event)}">Register</a>
-            </div>
-          </div>
-        </section>
-        <section class="register-view" data-bind="visible: (view() === 'register') ">
-          <div data-bind="template: { name: 'register' }">
-          </div>
-          <div class="form-group">
-            <div class="pull-left">
-              <a href="#login" data-bind="click: function(data, event){updateView('login'), event}">Back to Login</a>
-            </div>
+
+        <ul class="nav nav-pills" role="tablist">
+          <li role="presentation" data-bind="css: { 'active': (view() === 'profile')}">
+            <a href="#" data-bind="click: function(data, event){updateView('profile', event)}">Profile</a>
+          </li>
+          <li role="presentation" data-bind="css: { 'active': (view() === 'request')}">
+            <a href="#"  data-bind="click: function(data, event){updateView('request', event)}">Initiate Reqeust</a>
+          </li>
+        </ul>
+
+        <section class="profile-view" data-bind="visible: (view() === 'profile')">
+          <div data-bind="template: { name: 'profile' }">
           </div>
         </section>
-        <section class="reset-password-view" data-bind="visible: (view() === 'resetPassword') ">
-          <div data-bind="template: { name: 'reset-password' }">
-          </div>
-          <div class="form-group">
-            <div class="pull-left">
-              <a href="#login" data-bind="click: function(data, event){updateView('login', event)}">Back to Login</a>
-            </div>
+
+        <section class="request-view" data-bind="visible: (view() === 'request')">
+          <div data-bind="template: { name: 'request' }">
           </div>
         </section>
+        
       <!-- container end -->
       </div>      
     <!-- doc-wrap end -->
@@ -69,8 +59,8 @@
     <script src="js/vendor/require.js" data-main="js/config.js"></script>
     <script>
       require( [ "setup" ], function( setup ) {
-        require( ["home-require"], function( homeRequire ) {
-          console.info("\texecuting login page callback");
+        require( ["itrust-require"], function( homeRequire ) {
+          console.info("\texecuting itrust page callback");
 
         });
       });    
