@@ -20,3 +20,5 @@ $ git clone [git-repo-url] kotrustapp
 $ cd itrust-kyc
 $ npm i -d
 ```
+
+ [download nodeJS]: <https://nodejs.org/en/>
