@@ -17,7 +17,7 @@ define( [ "jquery", "knockout", "restAPI", "util", "model/login", "model/registe
         var xhr = restAPI.login(self.login);
         xhr.done( function(result, status){
           console.info('success');
-          window.location.href = "/app/itrust.html"; /* mock code */
+          window.location.href = "/itrust.html"; /* mock code */
         } );
         xhr.fail( function(result, status){
           console.info('failure');
@@ -29,7 +29,7 @@ define( [ "jquery", "knockout", "restAPI", "util", "model/login", "model/registe
         var xhr = restAPI.register(self.login);
         xhr.done( function(result, status){
           console.info('success');
-          window.location.href = "/app/itrust.html"; /* mock code */
+          window.location.href = "/itrust.html"; /* mock code */
         } );
         xhr.fail( function(result, status){
           console.info('failure');

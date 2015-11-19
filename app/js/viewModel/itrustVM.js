@@ -32,6 +32,7 @@ define( [ "jquery", "knockout", "restAPI", "util", "model/profile", "model/reque
         var xhr = restAPI.sendRequest(self.profile);
         xhr.done( function(result, status){
           console.info("success");
+          self.request.revert();
           util.setNotification("request sent successfully.");
         } );
         xhr.fail( function(result, status){

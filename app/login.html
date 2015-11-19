@@ -63,17 +63,20 @@
     <!-- doc-wrap end -->
     </div>   
 
-    <div class="doc-mask show"></div>
+     <div class="doc-mask">
+      <div class="loader"></div>
+    </div>
 
     <!-- script begin -->
-    <script src="js/vendor/require.js" data-main="js/config.js"></script>
+    <script src="app/js/vendor/require.js"></script>
     <script>
-      require( [ "setup" ], function( setup ) {
-        require( ["login-require"], function( loginRequire ) {
-          console.info("\texecuting login page callback");
-
+      require( ["app/js/config"], function() {
+        require( [ "setup" ], function( setup ) {
+          require( ["login-require"], function( loginRequire ) {
+            console.info("\texecuting login page callback");
+          });
         });
-      });    
+      });
     </script>
     <!-- script end -->    
   <!-- body end -->

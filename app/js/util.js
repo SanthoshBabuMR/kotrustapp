@@ -20,5 +20,13 @@ define( [ "jquery", "knockout" ], function( $, ko ) {
 	  }, 2000);
 	};
 
+  util.showLoader = function() {
+    $('.doc-mask').addClass('show');
+  };
+
+  util.hideLoader = function() {
+    $('.doc-mask').removeClass('show');
+  };
+
   return util;
 } );

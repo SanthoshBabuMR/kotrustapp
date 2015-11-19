@@ -2,22 +2,43 @@ define( [ "knockout" ], function( ko ) {
   "use strict";
   console.info("\texecuting js/model/register module callback");
 
-  var self
-  var model = function() {
-    self             = this;
+  var model = function(data) {
+    var self             = this;
     self.email           = ko.observable().extend({required: true, email: true});
     self.password        = ko.observable().extend({required: true});
     self.confirmPassword = ko.observable().extend({required: true});
     self._errors         = ko.validation.group([self.email, self.password, self.confirmPassword]);
-    self._cache          = ko.observable();
+    self._cache       = function(){};
+    self.update(data);
   }; 
 
-  model.prototype.validate = function() {
-    if(self._errors().length){
-      self._errors.showAllMessages();
-      return false;
+  ko.utils.extend(model.prototype, {
+    update: function(d) {
+      var data = d || {};
+      var self = this;
+      self.email(data.approverId);
+      self.password(data.remarks);
+      self.confirmPassword(data.appId);  
+      //save off the latest data for later use
+      self._cache.latestData = data;
+    },
+    commit: function(){
+      var self = this;
+      self._cache.latestData = ko.toJS(self);
+    },
+    revert: function() {
+      var self = this;      
+      self.update(self._cache.latestData);
+      self._errors.showAllMessages(false);
+    },
+    validate: function() {
+      var self = this;
+      if(self._errors().length){
+        self._errors.showAllMessages();
+        return false;
+      }
+      return true;
     }
-    return true;
-  };
+  });
   return model;
 } );

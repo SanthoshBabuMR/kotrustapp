@@ -1,4 +1,4 @@
-define( [ "jquery", "knockout", "restAPI", "viewModel/itrustVM" ], function( $, ko, restAPI, itrustVM ) {
+define( [ "jquery", "knockout", "util", "restAPI", "viewModel/itrustVM" ], function( $, ko, util, restAPI, itrustVM ) {
   "use strict";
   console.info("\texecuting js/itrust-require module callback");
   
@@ -7,7 +7,7 @@ define( [ "jquery", "knockout", "restAPI", "viewModel/itrustVM" ], function( $, 
 	  console.info('success');
 	  itrustVM.init(result.data);
 	  ko.applyBindings(itrustVM, $('.doc-wrap').get(0));	
-  	$('.doc-mask').removeClass('show');
+          util.hideLoader();
 	} );
 	xhr.fail( function(result, status){
 	  console.info('failure');

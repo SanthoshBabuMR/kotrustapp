@@ -2,9 +2,8 @@ define( [ "knockout" ], function( ko ) {
   "use strict";
   console.info("\texecuting js/model/profile module callback");
 
-  var self;
-  var model = function() {
-    self              = this;
+  var model = function(data) {
+    var self          = this;
     self.name         = ko.observable();
     self.dob          = ko.observable();
     self.email        = ko.observable();
@@ -20,14 +19,47 @@ define( [ "knockout" ], function( ko ) {
     self.state        = ko.observable();
     self.pincode      = ko.observable();
     self._errors      = ko.validation.group([self.email, self.password]);
-    self._cache       = ko.observable();
+    self._cache       = function(){};
+    self.update(data);
   }; 
-  model.prototype.validate = function() {
-    if(self._errors().length){
-      self._errors.showAllMessages();
-      return false;
+  ko.utils.extend(model.prototype, {
+    update: function(d) {
+      var data = d || {};
+      var self = this;
+      self.name(data.name);
+      self.dob(data.dob);
+      self.email(data.email);
+      self.phone(data.phone);
+      self.aadhaar(data.aadhaar);
+      self.pan(data.pan);
+      self.building(data.building);
+      self.street(data.street);
+      self.locality(data.locality);
+      self.poname(data.poname);
+      self.vtc(data.vtc);
+      self.district(data.district);
+      self.state(data.state);
+      self.pincode(data.pincode);        
+      //save off the latest data for later use
+      self._cache.latestData = data;
+    },
+    commit: function(){
+      var self = this;
+      self._cache.latestData = ko.toJS(self);
+    },
+    revert: function() {
+      var self = this;      
+      self.update(self._cache.latestData);
+      self._errors.showAllMessages(false);
+    },
+    validate: function() {
+      var self = this;
+      if(self._errors().length){
+        self._errors.showAllMessages();
+        return false;
+      }
+      return true;
     }
-    return true;
-  };
+  });
   return model;
 } );

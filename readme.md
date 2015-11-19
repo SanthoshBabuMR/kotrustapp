@@ -5,20 +5,21 @@ Web based application
 ### Version
 1.0.0
 
-### Installation
+### Dependencies
 
 You need to have NodeJS installed:
 * [download nodeJS]
 
-You need Grunt installed globally:
-```sh
-$ npm i -g grunt
-```
+### Download application
 
 ```sh
-$ git clone [git-repo-url] kotrustapp
-$ cd itrust-kyc
-$ npm i -d
+$ git clone https://github.com/html5webster/kotrustapp.git kotrustapp
+```
+
+### Launch Server
+```sh
+$ cd kotrustapp
+$ node index
 ```
 
  [download nodeJS]: <https://nodejs.org/en/>
